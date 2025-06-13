@@ -85,11 +85,11 @@ Add to your Claude Desktop config:
 
 ## Installation
 
-1. Clone or download this repository to `C:\MCP\MCP-Code`
+1. Clone or download this repository to `C:\MCP\codefile`
 
 2. Install dependencies:
 ```bash
-cd C:\MCP\MCP-Code
+cd C:\MCP\codefile
 npm install
 ```
 
@@ -105,9 +105,9 @@ Add this to your Claude Desktop configuration file:
 ```json
 {
   "mcpServers": {
-    "mcp-code": {
+    "codefile": {
       "command": "node",
-      "args": ["C:\\MCP\\MCP-Code\\server.js"],
+      "args": ["C:\\MCP\\codefile\\server.js"],
       "env": {}
     }
   }
@@ -118,7 +118,7 @@ Add this to your Claude Desktop configuration file:
 
 Use the following command to start the server:
 ```bash
-node C:\MCP\MCP-Code\server.js
+node C:\MCP\codefile\server.js
 ```
 
 ## Usage Examples
