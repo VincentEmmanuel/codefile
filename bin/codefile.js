@@ -5,8 +5,13 @@
  * This allows the server to be run via npx
  */
 
-const path = require('path');
-const { spawn } = require('child_process');
+import path from 'path';
+import { spawn } from 'child_process';
+import { fileURLToPath } from 'url';
+
+// Get __dirname equivalent in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Get the path to the actual server.js file
 const serverPath = path.join(__dirname, '..', 'server.js');

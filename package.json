@@ -2,6 +2,7 @@
   "name": "codefile",
   "version": "1.0.0",
   "description": "CodeFile - MCP server for code operations, filesystem management, and project analysis",
+  "type": "module",
   "main": "server.js",
   "bin": {
     "codefile": "./bin/codefile.js",
