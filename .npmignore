@@ -1,0 +1,39 @@
+# Development files
+.git/
+.gitignore
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Node modules (will be installed by npm)
+node_modules/
+
+# Test files
+test/
+tests/
+*.test.js
+*.spec.js
+
+# Documentation source files (keep compiled docs)
+docs/src/
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+
+# Environment files
+.env
+.env.*
+
+# Build artifacts
+dist/
+build/
+*.tgz
+
+# Example configuration
+claude_desktop_config_example.json
+
+# Local development files
+.npmrc

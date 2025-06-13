@@ -1,0 +1,53 @@
+{
+  "name": "codefile",
+  "version": "1.0.0",
+  "description": "CodeFile - MCP server for code operations, filesystem management, and project analysis",
+  "main": "server.js",
+  "bin": {
+    "codefile": "./bin/codefile.js",
+    "codefile-setup": "./bin/setup.js"
+  },
+  "files": [
+    "server.js",
+    "bin/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "setup": "node bin/setup.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "code",
+    "filesystem",
+    "search",
+    "programmer",
+    "development",
+    "ai-tools"
+  ],
+  "author": "Vincent Emmanuel <vincent_emmanuel@ymail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VincentEmmanuel/codefile.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VincentEmmanuel/codefile/issues"
+  },
+  "homepage": "https://github.com/VincentEmmanuel/codefile#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "glob": "^10.3.10",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
+  }
+}

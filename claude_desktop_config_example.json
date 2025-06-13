@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "codefile": {
+      "command": "node",
+      "args": ["C:\\MCP\\MCP-Code\\server.js"],
+      "env": {}
+    }
+  }
+}
