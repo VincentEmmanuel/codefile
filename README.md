@@ -1,21 +1,37 @@
-# CodeFile
+# CodeFile - MCP Server for Code Operations
 
-[![npm version](https://img.shields.io/npm/v/codefile.svg)](https://www.npmjs.com/package/codefile)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+A powerful Model Context Protocol (MCP) server that provides comprehensive code operations, filesystem management, and project analysis capabilities to Claude Desktop and other MCP clients.
 
-A powerful Model Context Protocol (MCP) server that gives AI assistants comprehensive access to your codebase. Perform file operations, search code, analyze projects, and execute development tasks seamlessly through Claude or other MCP-compatible clients.
+## Features
 
-## 🚀 Quick Installation
+### 🗂️ Filesystem Operations
+- **Read/Write Files** - Read, create, and modify files
+- **Directory Management** - Create, list, and navigate directories  
+- **File Operations** - Move, rename, delete files and directories
+- **Search Files** - Find files by name pattern with glob support
 
-### Option 1: npm (Recommended)
+### 🔍 Code Intelligence
+- **Code Search** - Search across codebases with regex support
+- **Context-Aware Results** - Get surrounding lines for better context
+- **Multi-Language Support** - Works with all major programming languages
+- **Project Analysis** - Understand project structure and dependencies
 
-**Automatic Setup:**
-```bash
-npx codefile setup
-```
+### 🛠️ Developer Utilities
+- **Command Execution** - Run shell commands with timeout protection
+- **Data Processing** - Parse JSON/YAML, calculate hashes, encode/decode
+- **Project Insights** - Analyze dependencies, find entry points, categorize directories
 
-**Manual Configuration:**
+## Quick Start
+
+### Installation via npx (Recommended)
+
+1. **Configure Claude Desktop**
+
 Add to your Claude Desktop config:
+
+**Windows**: `%APPDATA%\Claude\claude_desktop_config.json`  
+**macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+
 ```json
 {
   "mcpServers": {
@@ -27,175 +43,82 @@ Add to your Claude Desktop config:
 }
 ```
 
-### Option 2: Manual Installation
+2. **Restart Claude Desktop**
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/VincentEmmanuel/codefile.git
-   cd codefile
-   npm install
-   ```
+3. **Start using!** Ask Claude to:
+   - "Search for TODO comments in my code"
+   - "Analyze this project structure"
+   - "Find all functions containing 'async'"
 
-2. Add to your Claude Desktop config:
-   ```json
-   {
-     "mcpServers": {
-       "codefile": {
-         "command": "node",
-         "args": ["/path/to/codefile/server.js"]
-       }
-     }
-   }
-   ```
+### Automatic Setup
 
-## Features
-
-### 1. Filesystem Operations
-- **read_file** - Read file contents
-- **write_file** - Create or overwrite files
-- **edit_file** - Replace text in files
-- **create_directory** - Create directories
-- **list_directory** - List directory contents with metadata
-- **move_file** - Move or rename files/directories
-- **delete_file** - Delete files or directories
-- **search_files** - Find files by name pattern
-- **get_file_info** - Get detailed file metadata
-
-### 2. Code Search
-- **search_code** - Search for patterns across code files
-  - Supports regex and literal search
-  - Case sensitive/insensitive options
-  - Context lines around matches
-  - Configurable file extensions
-
-### 3. Project Analysis
-- **analyze_project_structure** - Comprehensive project analysis
-  - Detects project type (Node.js, Python, Rust, Go, etc.)
-  - Finds entry points
-  - Categorizes directories (source, tests, docs, etc.)
-  - Extracts dependencies
-  - Provides file statistics
-
-### 4. Utilities
-- **execute_command** - Run shell commands
-- **parse_json** - Parse and validate JSON
-- **parse_yaml** - Parse and validate YAML
-- **calculate_hash** - Calculate file hashes (MD5, SHA256, etc.)
-- **encode_decode** - Convert between encodings
-
-## Installation
-
-1. Clone or download this repository to `C:\MCP\codefile`
-
-2. Install dependencies:
 ```bash
-cd C:\MCP\codefile
-npm install
+npx codefile-setup
 ```
 
-## Configuration
+This will automatically configure Claude Desktop for you.
 
-### For Claude Desktop
-
-Add this to your Claude Desktop configuration file:
-
-**Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-**macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-
-```json
-{
-  "mcpServers": {
-    "codefile": {
-      "command": "node",
-      "args": ["C:\\MCP\\codefile\\server.js"],
-      "env": {}
-    }
-  }
-}
-```
-
-### For Other MCP Clients
-
-Use the following command to start the server:
-```bash
-node C:\MCP\codefile\server.js
-```
-
-## Usage Examples
-
-### Code Search
-Search for TODO comments in your project:
-```
-search_code(query="TODO", caseSensitive=false)
-```
-
-Search using regex:
-```
-search_code(query="function\\s+\\w+\\s*\\(", regex=true, fileExtensions=[".js", ".ts"])
-```
-
-### Project Analysis
-Analyze current project:
-```
-analyze_project_structure(projectPath=".")
-```
+## Available Tools
 
 ### File Operations
-Read a file:
-```
-read_file(path="package.json")
-```
+- `read_file` - Read file contents
+- `write_file` - Write content to file
+- `edit_file` - Replace text in files
+- `create_directory` - Create directories
+- `list_directory` - List directory contents
+- `move_file` - Move or rename files
+- `delete_file` - Delete files or directories
+- `search_files` - Search for files by pattern
+- `get_file_info` - Get file metadata
 
-Edit a file:
-```
-edit_file(path="config.js", oldText="debug: false", newText="debug: true")
-```
+### Code Intelligence
+- `search_code` - Search for code patterns
+- `analyze_project_structure` - Analyze project organization
 
 ### Utilities
-Execute a command:
+- `execute_command` - Run shell commands
+- `parse_json` - Parse JSON data
+- `parse_yaml` - Parse YAML data
+- `calculate_hash` - Calculate file hashes
+- `encode_decode` - Convert between encodings
+
+## Examples
+
+### Search for patterns in code
 ```
-execute_command(command="npm list", cwd="./my-project")
-```
-
-Calculate file hash:
-```
-calculate_hash(path="important-file.zip", algorithm="sha256")
-```
-
-## Security Notes
-
-- The server normalizes and validates all file paths
-- Binary files are automatically skipped during code search
-- Command execution has a 30-second timeout by default
-- Large directories are searched with depth limits
-
-## Development
-
-To run in development mode with auto-reload:
-```bash
-npm run dev
+Claude: "Find all TODO comments in JavaScript files"
 ```
 
-## Error Handling
-
-All tools return structured responses with error information when operations fail:
-```json
-{
-  "error": "Detailed error message"
-}
+### Analyze project
+```
+Claude: "What kind of project is this and what are its dependencies?"
 ```
 
-## Performance Tips
+### Refactor code
+```
+Claude: "Replace all console.log statements with logger.debug"
+```
 
-1. Use specific file extensions in `search_code` to improve performance
-2. Set reasonable `maxResults` limits for search operations
-3. The server automatically ignores `node_modules` and `.git` directories
-4. Use targeted search paths instead of searching from root
+## Security
+
+- Path validation and normalization
+- Automatic filtering of sensitive directories (.git, node_modules)
+- Command execution timeouts
+- No arbitrary code execution
+
+## Requirements
+
+- Node.js 18.0.0 or higher
+- Claude Desktop or any MCP-compatible client
 
 ## License
 
 MIT
 
-## Contributing
+## Author
 
-Feel free to submit issues or pull requests to improve the server functionality.
+Vincent Emmanuel <vincent_emmanuel@ymail.com>
+
+## Repository
+
+[https://github.com/VincentEmmanuel/codefile](https://github.com/VincentEmmanuel/codefile)
