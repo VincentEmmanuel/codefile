@@ -171,13 +171,9 @@ const toolHandlers = {
   delete_file: async ({ path: filePath }) => {
     try {
       const safePath = ensureSafePath(filePath);
-      const stats = await fs.stat(safePath);
       
-      if (stats.isDirectory()) {
-        await fs.rmdir(safePath, { recursive: true });
-      } else {
-        await fs.unlink(safePath);
-      }
+      // Use fs.rm() which handles both files and directories correctly
+      await fs.rm(safePath, { recursive: true, force: true });
       
       return { success: true, message: `Deleted: ${filePath}` };
     } catch (error) {
